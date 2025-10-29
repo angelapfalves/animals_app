@@ -2,7 +2,7 @@ import axios from 'axios';
 import { UNSPLASH_ACCESS_KEY, UNSPLASH_BASE_URL } from '@env';
 
 const ACCESS_KEY = UNSPLASH_ACCESS_KEY;
-const BASE_URL  = UNSPLASH_BASE_URL;
+const BASE_URL = UNSPLASH_BASE_URL;
 
 
 const api = axios.create({

@@ -2,10 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 
-     container: {
-    flex:1,
-    flexDirection:'row'
-    
+  container: {
+    flex: 1,
+    flexDirection: 'row'
+
   },
   input: {
     height: 50,
@@ -21,9 +21,9 @@ export default StyleSheet.create({
     elevation: 3,
     borderWidth: 1,
     borderColor: '#FAF5EB',
-  flex:1,
+    flex: 1,
   },
-  search:{
+  search: {
     height: 50,
     backgroundColor: '#4492b9',
     borderRadius: 12,
@@ -37,9 +37,9 @@ export default StyleSheet.create({
     elevation: 3,
     borderWidth: 1,
     borderColor: '#96A3A2',
-    alignItems:'center',
-    justifyContent:'center',
-    marginLeft:10
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 10
 
   }
 });
