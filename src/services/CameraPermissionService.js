@@ -5,10 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const STORAGE_KEY = '@camera_permission_status';
 
 const CameraPermissionService = {
-  /**
-   * Check if we already have a saved permission and Ask for permission if it's the first time or was denied
-   * @returns {"granted" | "denied" | null}
-   */
+  
   init : async () => {
         const saved = await CameraPermissionService.getSavedPermission();
         if (saved === 'granted') {
@@ -16,10 +13,7 @@ const CameraPermissionService = {
           const status = await CameraPermissionService.requestPermission();
         }
       },
-  /**
-   * Get saved camera permission status from AsyncStorage
-   * @returns {"granted" | "denied" | null}
-   */
+
   getSavedPermission: async () => {
     try {
       const status = await AsyncStorage.getItem(STORAGE_KEY);
@@ -30,10 +24,7 @@ const CameraPermissionService = {
     }
   },
 
-  /**
-   * Save camera permission status
-   * @param {"granted" | "denied"} status
-   */
+
   savePermission: async (status) => {
     try {
       await AsyncStorage.setItem(STORAGE_KEY, status);
@@ -42,10 +33,7 @@ const CameraPermissionService = {
     }
   },
 
-  /**
-   * Request camera permission (Android only)
-   * @returns {"granted" | "denied"}
-   */
+
   requestPermission: async () => {
     if (Platform.OS === 'ios') {
       // iOS handles permissions automatically through the image picker

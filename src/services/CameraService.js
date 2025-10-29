@@ -1,5 +1,6 @@
 import {  Share } from 'react-native';
 import api from './api';
+import { launchCamera } from 'react-native-image-picker';
 
 const CameraService = {
 
@@ -27,5 +28,51 @@ const CameraService = {
       setPhoto(photo.urls.small);
     }
   },
+
+  
+  
+      handleCameraResponse:(response, setPhoto)=> {
+          if (!response) {
+              console.warn('launchCamera returned undefined');
+              return;
+          }
+  
+          if (response.didCancel) {
+              console.log('User cancelled camera');
+              return;
+          }
+  
+          if (response.errorCode) {
+              console.error('Camera error:', response.errorMessage);
+              return;
+          }
+  
+          if (!response.assets || !response.assets[0]) {
+              console.warn('No photo returned from camera');
+              return;
+          }
+  
+          const photoUri = response.assets[0].uri;
+          if (photoUri) {
+              setPhoto(photoUri);
+          } else {
+              console.warn('Photo URI missing');
+          }
+      },  
+      openCamera:async (setPhoto)=> {
+          try {
+              const options = {
+              mediaType: 'photo',
+              saveToPhotos: false,
+              };
+  
+              const response = await launchCamera(options);
+  
+              // ✅ Chama a função separada que trata os erros e validações
+              CameraService.handleCameraResponse(response, setPhoto);
+          } catch (err) {
+              console.error('Error opening camera:', err);
+          }
+          },
 }
 export default CameraService;
