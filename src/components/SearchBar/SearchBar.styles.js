@@ -41,5 +41,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
     marginLeft: 10
 
-  }
+  },
+  disabledSearch: {
+    backgroundColor: '#a0a0a0', // grey when disabled
+  },
 });

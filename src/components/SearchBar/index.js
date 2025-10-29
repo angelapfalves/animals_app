@@ -18,7 +18,7 @@ export default function SearchBar() {
         placeholder="Search Image"
         returnKeyType="search"
       />
-      <TouchableOpacity style={styles.search} onPress={() => { CameraService.handleSearch(setPhoto, query) }}>
+      <TouchableOpacity style={[styles.search, query === '' && styles.disabledSearch,]} onPress={() => { CameraService.handleSearch(setPhoto, query) }} disabled={query === '' ? true : false}>
         <Icon name="search" size={30} color="#fff" />
       </TouchableOpacity>
     </View>
