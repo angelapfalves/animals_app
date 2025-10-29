@@ -1,11 +1,14 @@
-import React from 'react';
+import React , { useContext } from 'react';
 import {View, TouchableOpacity} from 'react-native';
 import { launchCamera } from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import styles from './TakePicture.styles';
+import { AnimalPhotoContext } from '../../contexts/AnimalPhotoContext';
 
-export default function TakePicture({setPhoto}) {
 
+export default function TakePicture() {
+
+  const { photo, setPhoto } = useContext(AnimalPhotoContext);
         async function openCamera() {
         try {
             const options = {

@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import { View, StyleSheet } from 'react-native';
 import CameraPermissionService from './src/services/CameraPermissionService'
 import Home from './src/pages/Home'
 import Photo from './src/pages/Photo'
-
-
+import { PhotoProvider } from './src/contexts/AnimalPhotoContext';
 export default function App() {
-  const [photo, setPhoto] = useState(null);
-
 
   //servico
   useEffect(()=>{
@@ -25,9 +22,13 @@ export default function App() {
   },[]);
 
   return (
+<PhotoProvider>
     <View style={styles.container}>    
-      {!photo ? <Home setPhoto={setPhoto}/> : <Photo photo={photo} setPhoto={setPhoto}/>}
+      <Home/>
+      <Photo/>
     </View>
+
+  </PhotoProvider>
   );
 }
 
