@@ -31,7 +31,6 @@ const CameraPermissionService = {
     }
   },
 
-  
   /**
    * Request camera permission (Android only)
    * @returns {"granted" | "denied"}

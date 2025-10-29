@@ -1,16 +1,19 @@
-import React, {  useState } from 'react';
+import React, {  useContext} from 'react';
 import { View, Image,  Share, TouchableOpacity, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import styles from './Photo.styles';
+import { AnimalPhotoContext } from '../../contexts/AnimalPhotoContext';
 
-export default function Photo({photo ,setPhoto}) {
+
+export default function Photo() {
+  const { photo, setPhoto } = useContext(AnimalPhotoContext);
 
   const sharePhoto = () => {
     if (!photo) return;
     Share.share({ message: 'Look at this cool animal!', url: photo });
   };
 
-    return (
+    return (photo?
     <View style={styles.container}> 
     <View style={styles.buttons}>
         <TouchableOpacity onPress={()=>setPhoto(null)} style={styles.returnButton}>
@@ -22,7 +25,7 @@ export default function Photo({photo ,setPhoto}) {
         </View>
           <Image source={{ uri: photo }} style={styles.image} />
     
-    </View>
+    </View>:<View></View>
     )
   
 

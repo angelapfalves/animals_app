@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, TextInput, TouchableOpacity } from 'react-native';
 import api from '../../services/api';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import styles from './SearchBar.styles';
+import { AnimalPhotoContext } from '../../contexts/AnimalPhotoContext';
 
+export default function SearchBar() {
 
-export default function SearchBar({ setPhoto }) {
+  const { photo, setPhoto } = useContext(AnimalPhotoContext);
+
   const [query, setQuery] = useState('');
 
   const searchPhotos = async (q) => {
@@ -26,7 +29,6 @@ export default function SearchBar({ setPhoto }) {
     if (photo) {
       setPhoto(photo.urls.small);
     }
-   console.log('testes')
   };
 
   return (
