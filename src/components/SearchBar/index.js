@@ -8,7 +8,7 @@ import CameraService from '../../services/CameraService';
 export default function SearchBar() {
   const { photo, setPhoto } = useContext(AnimalPhotoContext);
   const [query, setQuery] = useState('');
-   
+
   return (
     <View style={styles.container}>
       <TextInput
@@ -18,8 +18,8 @@ export default function SearchBar() {
         placeholder="Search Image"
         returnKeyType="search"
       />
-      <TouchableOpacity style={styles.search} onPress={()=>{CameraService.handleSearch(setPhoto,query)}}>
-            <Icon name="search" size={30} color="#fff" />
+      <TouchableOpacity style={styles.search} onPress={() => { CameraService.handleSearch(setPhoto, query) }}>
+        <Icon name="search" size={30} color="#fff" />
       </TouchableOpacity>
     </View>
   );

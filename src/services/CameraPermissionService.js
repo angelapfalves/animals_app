@@ -5,14 +5,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const STORAGE_KEY = '@camera_permission_status';
 
 const CameraPermissionService = {
-  
-  init : async () => {
-        const saved = await CameraPermissionService.getSavedPermission();
-        if (saved === 'granted') {
-        } else {
-          const status = await CameraPermissionService.requestPermission();
-        }
-      },
+
+  init: async () => {
+    const saved = await CameraPermissionService.getSavedPermission();
+    if (saved === 'granted') {
+    } else {
+      const status = await CameraPermissionService.requestPermission();
+    }
+  },
 
   getSavedPermission: async () => {
     try {
