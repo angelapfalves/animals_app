@@ -26,7 +26,6 @@ export default function SearchBar({ setPhoto }) {
     if (photo) {
       setPhoto(photo.urls.small);
     }
-   console.log('testes')
   };
 
   return (
