@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
   input: {
     height: 50,
-    backgroundColor: '#F5EBD6',
+    backgroundColor: '#FAF5EB',
     borderRadius: 12,
     paddingHorizontal: 16,
     fontSize: 16,
@@ -20,7 +20,7 @@ export default StyleSheet.create({
     shadowRadius: 4,
     elevation: 3,
     borderWidth: 1,
-    borderColor: '#F5EBD6',
+    borderColor: '#FAF5EB',
   flex:1,
   },
   search:{

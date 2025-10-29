@@ -6,6 +6,17 @@ const STORAGE_KEY = '@camera_permission_status';
 
 const CameraPermissionService = {
   /**
+   * Check if we already have a saved permission and Ask for permission if it's the first time or was denied
+   * @returns {"granted" | "denied" | null}
+   */
+  init : async () => {
+        const saved = await CameraPermissionService.getSavedPermission();
+        if (saved === 'granted') {
+        } else {
+          const status = await CameraPermissionService.requestPermission();
+        }
+      },
+  /**
    * Get saved camera permission status from AsyncStorage
    * @returns {"granted" | "denied" | null}
    */
