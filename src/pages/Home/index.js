@@ -7,9 +7,10 @@ import { AnimalPhotoContext } from '../../contexts/AnimalPhotoContext';
 
 export default function Home() {
   const { photo, setPhoto } = useContext(AnimalPhotoContext);
-
+  const logo='../../assets/animalLogo.png';
+  
     return (!photo ?<View style={styles.searchView}> 
-         <Image source={require('../../assets/animalLogo.png')} style={styles.animalLogo} />
+         <Image source={require(logo)} style={styles.animalLogo} />
           <View style={styles.searchContainer}>
             <SearchBar />
             <TakePicture  />
